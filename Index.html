@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Wall</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    window.onerror = function(msg, url, line) {
+      alert('JS Error: ' + msg + ' (line ' + line + ')');
+    };
+  </script>
+</head>
+<body>
 
+  <h2 class="wall-title">Our Wall</h2>
+
+  <!-- Clean Photo Wall Area -->
+  <main class="wall" id="photo-wall">
+    <!-- Photos stack here -->
+  </main>
+
+  <!-- Photo Preview Modal (Appears after taking a photo so they can type a caption & check it) -->
+  <div id="preview-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Review Your Photo</h3>
+      <div class="preview-polaroid">
+        <div class="image-container">
+          <img id="preview-img" src="" alt="Preview" />
+        </div>
+        <input type="text" id="modal-caption-input" maxlength="10" placeholder="Caption (Max 10)" />
+      </div>
+      <div class="modal-buttons">
+        <button id="retake-btn" class="secondary-btn">Retake</button>
+        <button id="confirm-upload-btn" class="primary-btn">Post to Wall</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Big Noticeable Camera Button Fixed at Bottom Middle -->
+  <footer class="footer-bar">
+    <input type="file" id="camera-input" accept="image/*" capture="environment" style="display: none;">
+    <label for="camera-input" class="snap-btn-large" id="open-camera-btn">📷 Pin Your Moment</label>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
